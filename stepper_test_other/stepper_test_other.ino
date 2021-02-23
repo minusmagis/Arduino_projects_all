@@ -2,7 +2,11 @@
 //Define stepper motor connections and steps per revolution
 #define dirPin 2
 #define stepPin 3
-#define stepsPerRevolution 200
+#define stepsPerRevolution 6400
+#define delay1  200
+#define delay2  100
+#define delay3  50
+
 void setup()
 {
   //Set pins as output
@@ -17,9 +21,9 @@ void loop()
   for(int i = 0; i < stepsPerRevolution; i++)
   {
     digitalWrite(stepPin, HIGH); //These four lines result in 1 step
-    delayMicroseconds(2000);
+    delayMicroseconds(delay1);
     digitalWrite(stepPin, LOW);
-    delayMicroseconds(2000);
+    delayMicroseconds(delay1);
   }
   delay(1000); // Wait a second
   
@@ -29,9 +33,9 @@ void loop()
   for(int i = 0; i < stepsPerRevolution; i++)
   {
     digitalWrite(stepPin, HIGH); //These four lines result in 1 step
-    delayMicroseconds(1000);
+    delayMicroseconds(delay2);
     digitalWrite(stepPin, LOW);
-    delayMicroseconds(1000);
+    delayMicroseconds(delay2);
   }
   delay(1000); // Wait a second
     //Set motor direction clockwise
@@ -40,9 +44,9 @@ void loop()
   for(int i = 0; i < 5*stepsPerRevolution; i++)
   {
     digitalWrite(stepPin, HIGH); //These four lines result in 1 step
-    delayMicroseconds(500);
+    delayMicroseconds(delay3);
     digitalWrite(stepPin, LOW);
-    delayMicroseconds(500);
+    delayMicroseconds(delay3);
   }
   delay(1000); // Wait a second
     //Set motor direction counterclockwise
@@ -51,9 +55,9 @@ void loop()
   for(int i = 0; i < 5*stepsPerRevolution; i++)
   {
     digitalWrite(stepPin, HIGH); //These four lines result in 1 step
-    delayMicroseconds(500);
+    delayMicroseconds(delay3);
     digitalWrite(stepPin, LOW);
-    delayMicroseconds(500);
+    delayMicroseconds(delay3);
   }
   delay(1000); // Wait a second
 }
